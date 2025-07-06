@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* === Root Color Variables === */
+@layer base {
+  :root {
+    --color-background: #faf6eb;       /* Warna dasar latar belakang */
+    --color-foreground: #3e2c23;       /* Warna teks utama (coklat tua) */
+    --color-primary: #5e390e;          /* Aksen utama (kopi gelap) */
+    --color-accent: #d9a05b;           /* Aksen highlight (karamel) */
+    --color-muted: #eee7dc;            /* Warna lembut/beige */
+    --color-border: #d9cbb9;           /* Warna garis/border */
+    --color-success: #22c55e;          /* Hijau sukses */
+    --color-danger: #ef4444;           /* Merah error */
+
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[var(--color-background)] text-[var(--color-foreground)] font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold text-[var(--color-primary)];
+  }
+
+  a {
+    @apply text-[var(--color-primary)] hover:text-[var(--color-accent)] transition-colors duration-200;
+  }
+
+  button {
+    @apply bg-[var(--color-primary)] text-white font-semibold px-4 py-2 rounded-md hover:bg-[var(--color-accent)] transition-colors;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply border border-[var(--color-border)] rounded-md px-3 py-2 bg-white text-[var(--color-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)];
+  }
+
+  /* Card and Section Styling */
+  .section {
+    @apply py-12 px-4 md:px-10 lg:px-20;
+  }
+
+  .section-title {
+    @apply text-3xl font-serif font-bold mb-6 text-center text-[var(--color-primary)];
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden border border-[var(--color-border)];
+  }
+
+  .card-title {
+    @apply font-serif font-semibold text-lg text-[var(--color-primary)] mb-2;
+  }
+
+  .card-text {
+    @apply text-sm text-[var(--color-foreground)];
+  }
+
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-white px-4 py-2 rounded hover:bg-[var(--color-accent)];
+  }
+
+  .btn-accent {
+    @apply bg-[var(--color-accent)] text-[var(--color-primary)] px-4 py-2 rounded hover:brightness-110;
+  }
+
+  .bg-coffee {
+    @apply bg-[url('/images/bg-coffee.jpg')] bg-cover bg-center;
+  }
+}
