@@ -197,16 +197,13 @@ export default function AboutPage() {
             <div className="flex-1 relative group">
               <div className="relative h-80 w-full rounded-2xl overflow-hidden shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
                 <Image 
-                  src="/images/about1.jpg" 
+                  src="/home-image.jpg" 
                   alt="Tentang Gedong Coffee - Suasana kedai kopi tradisional" 
                   fill 
                   className="object-cover"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-              </div>
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg animate-pulse">
-                ☕
               </div>
             </div>
           </section>
@@ -222,7 +219,7 @@ export default function AboutPage() {
             <div className="flex-1 relative group">
               <div className="relative h-80 w-full rounded-2xl overflow-hidden shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
                 <Image 
-                  src="/images/about2.jpg" 
+                  src="/home-image.jpg" 
                   alt="Sejarah Pabrik Gedong Coffee - Proses pengolahan kopi tradisional" 
                   fill 
                   className="object-cover"
@@ -266,97 +263,79 @@ export default function AboutPage() {
           </section>
 
           {/* Vision & Mission with Cards */}
-          <section 
-            id="vision"
-            data-animate
-            className={`transition-all duration-1000 ${
-              isVisible.vision ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold text-amber-900 mb-4">Visi & Misi</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-500 rounded-full mx-auto"></div>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              <div className="group">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-600 to-orange-600 p-8 text-white transform group-hover:scale-105 transition-all duration-300 shadow-2xl">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-                  <div className="relative z-10">
-                    <div className="text-4xl mb-4">🎯</div>
-                    <h3 className="text-3xl font-bold mb-4">Visi</h3>
-                    <p className="text-lg leading-relaxed">
-                      Menjadi merek kopi lokal yang dikenal secara global tanpa menghilangkan akar tradisi dan kualitas lokal.
-                    </p>
-                  </div>
-                </div>
+<section 
+  id="vision"
+  data-animate
+  className={`transition-all duration-1000 ${
+    isVisible.vision ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+  }`}
+>
+  <div className="text-center mb-16">
+    <h2 className="text-5xl font-bold text-amber-900 mb-4">Visi & Misi</h2>
+    <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-500 rounded-full mx-auto"></div>
+  </div>
+  
+  <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+    <div className="group">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 p-8 text-amber-800 transform group-hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-amber-100/50 rounded-full -translate-y-16 translate-x-16"></div>
+        <div className="relative z-10">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-100 rounded-full mb-6">
+            <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </div>
+          <h3 className="text-3xl font-bold mb-4 text-amber-800">Visi</h3>
+          <p className="text-lg leading-relaxed text-amber-700">
+            Menjadi merek kopi lokal yang dikenal secara global tanpa menghilangkan akar tradisi dan kualitas lokal.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div className="group">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 border border-orange-100 p-8 text-orange-800 transform group-hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100/50 rounded-full -translate-y-16 translate-x-16"></div>
+        <div className="relative z-10">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6">
+            <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 className="text-3xl font-bold mb-4 text-orange-800">Misi</h3>
+          <ul className="space-y-4 text-lg">
+            <li className="flex items-start gap-3">
+              <div className="inline-flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full mt-0.5">
+                <svg className="w-3 h-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
               </div>
-              
-              <div className="group">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-600 to-red-600 p-8 text-white transform group-hover:scale-105 transition-all duration-300 shadow-2xl">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-                  <div className="relative z-10">
-                    <div className="text-4xl mb-4">🚀</div>
-                    <h3 className="text-3xl font-bold mb-4">Misi</h3>
-                    <ul className="space-y-3 text-lg">
-                      <li className="flex items-start gap-3">
-                        <span className="text-yellow-300">✓</span>
-                        <span>Mendukung petani lokal melalui kemitraan berkelanjutan</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-yellow-300">✓</span>
-                        <span>Menghadirkan kopi berkualitas tinggi dengan proses etis</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-yellow-300">✓</span>
-                        <span>Mengedukasi konsumen tentang kopi berkelanjutan</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <span className="text-orange-700">Mendukung petani lokal melalui kemitraan berkelanjutan</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="inline-flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full mt-0.5">
+                <svg className="w-3 h-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
               </div>
-            </div>
-          </section>
+              <span className="text-orange-700">Menghadirkan kopi berkualitas tinggi dengan proses etis</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="inline-flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full mt-0.5">
+                <svg className="w-3 h-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span className="text-orange-700">Mengedukasi konsumen tentang kopi berkelanjutan</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          {/* Testimonials Carousel */}
-          <section className="text-center">
-            <h2 className="text-5xl font-bold text-amber-900 mb-4">Kata Mereka</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-500 rounded-full mx-auto mb-12"></div>
-            
-            <div className="relative max-w-4xl mx-auto">
-              <div className="overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm border border-amber-200 shadow-xl">
-                <div 
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                >
-                  {testimonials.map((testimonial, index) => (
-                    <div key={index} className="w-full flex-shrink-0 p-12">
-                      <div className="text-6xl text-amber-600 mb-4">"</div>
-                      <p className="text-xl text-gray-700 mb-6 italic">{testimonial.text}</p>
-                      <div className="flex justify-center mb-4">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <span key={i} className="text-2xl text-yellow-400">★</span>
-                        ))}
-                      </div>
-                      <div className="text-lg font-semibold text-amber-800">- {testimonial.name}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="flex justify-center mt-6 gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      currentSlide === index ? 'bg-amber-600' : 'bg-amber-200'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </section>
 
           {/* Contact Form with Glassmorphism */}
           <section 

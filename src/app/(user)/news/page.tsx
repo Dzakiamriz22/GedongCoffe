@@ -66,44 +66,14 @@ const newsList: News[] = [
 
 export default function NewsPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('semua');
 
   const filteredNews = useMemo(() => {
     return newsList.filter(news => {
       const matchesSearch = news.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            news.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-      
-      if (selectedCategory === 'semua') return matchesSearch;
-      
-      // Simple category filtering based on keywords
-      const categoryKeywords = {
-        'penghargaan': ['penghargaan', 'award'],
-        'pelatihan': ['pelatihan', 'training'],
-        'ekspor': ['ekspor', 'export'],
-        'festival': ['festival', 'event'],
-        'teknologi': ['teknologi', 'inovasi'],
-        'kemitraan': ['kemitraan', 'partnership']
-      };
-      
-      const keywords = categoryKeywords[selectedCategory as keyof typeof categoryKeywords] || [];
-      const matchesCategory = keywords.some(keyword => 
-        news.title.toLowerCase().includes(keyword) || 
-        news.excerpt.toLowerCase().includes(keyword)
-      );
-      
-      return matchesSearch && matchesCategory;
+      return matchesSearch;
     });
-  }, [searchTerm, selectedCategory]);
-
-  const categories = [
-    { value: 'semua', label: 'Semua' },
-    { value: 'penghargaan', label: 'Penghargaan' },
-    { value: 'pelatihan', label: 'Pelatihan' },
-    { value: 'ekspor', label: 'Ekspor' },
-    { value: 'festival', label: 'Festival' },
-    { value: 'teknologi', label: 'Teknologi' },
-    { value: 'kemitraan', label: 'Kemitraan' }
-  ];
+  }, [searchTerm]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 pt-20 pb-12">
@@ -118,42 +88,46 @@ export default function NewsPage() {
           </p>
         </div>
 
-        {/* Search and Filter Section */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-amber-100">
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            {/* Search Bar */}
-            <div className="relative flex-1">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* Search Section */}
+        <div className="relative mb-12">
+          <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-3xl shadow-2xl p-8 border border-amber-200">
+            <div className="text-center mb-6">
+              <h2 className="text-xl font-semibold text-amber-900 mb-2">
+                Temukan Berita Terbaru
+              </h2>
+              <p className="text-amber-800 text-sm">
+                Cari informasi terkini tentang dunia kopi Indonesia
+              </p>
+            </div>
+            <div className="relative max-w-xl mx-auto">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
               <input
                 type="text"
-                placeholder="Cari berita..."
-                className="w-full pl-10 pr-4 py-3 border border-amber-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition duration-300"
+                placeholder="Ketik kata kunci untuk mencari berita..."
+                className="w-full pl-12 pr-16 py-4 text-lg bg-white/95 backdrop-blur-sm border-2 border-white/20 rounded-2xl focus:outline-none focus:ring-4 focus:ring-amber-200/50 focus:border-amber-300/50 transition-all duration-300 placeholder-gray-500 shadow-lg"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-            </div>
-
-            {/* Category Filter */}
-            <div className="flex flex-wrap gap-2">
-              {categories.map(category => (
+              {searchTerm && (
                 <button
-                  key={category.value}
-                  onClick={() => setSelectedCategory(category.value)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
-                    selectedCategory === category.value
-                      ? 'bg-amber-500 text-white shadow-md'
-                      : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-                  }`}
+                  onClick={() => setSearchTerm('')}
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors duration-200"
                 >
-                  {category.label}
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
                 </button>
-              ))}
+              )}
             </div>
           </div>
+          
+          {/* Decorative Elements */}
+          <div className="absolute -top-2 -right-2 w-16 h-16 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute -bottom-2 -left-2 w-12 h-12 bg-orange-400 rounded-full opacity-20 animate-pulse delay-700"></div>
         </div>
 
         {/* Results Count */}
@@ -219,11 +193,11 @@ export default function NewsPage() {
           <div className="text-center py-12">
             <div className="w-24 h-24 mx-auto mb-4 bg-amber-100 rounded-full flex items-center justify-center">
               <svg className="w-12 h-12 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-amber-900 mb-2">Tidak ada berita ditemukan</h3>
-            <p className="text-amber-700">Coba ubah kata kunci pencarian atau filter kategori</p>
+            <p className="text-amber-700">Coba ubah kata kunci pencarian</p>
           </div>
         )}
       </div>

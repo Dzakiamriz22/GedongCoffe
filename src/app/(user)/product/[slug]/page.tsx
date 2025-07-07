@@ -179,7 +179,7 @@ export default function ProductDetailPage() {
         <div className="space-y-4">
           <div className="relative aspect-square bg-gray-50 rounded-xl overflow-hidden shadow-sm border border-gray-200">
             <Image 
-              src={product.images[selectedImage]} 
+              src="/home-image.jpg"
               alt={product.name} 
               fill 
               className="object-cover"
